@@ -21,13 +21,13 @@ def main():
     conway = Conway(bounds=(0,dim))
 
     # glider
-    #initial_cells = [(1,0), (2,1), (0,2), (1,2), (2,2)]
+    initial_cells = [(1,0), (2,1), (0,2), (1,2), (2,2)]
 
     # blinker
     #initial_cells = [(1,0), (1,1), (1,2)]
 
     # random
-    initial_cells = [(1,0), (2,1), (0,2), (1,2), (2,2), (5,5), (5,6), (5,7), (4,3), (4,2), (4,1), (3,4), (3,3), (5,2), (7,1), (7,3)]
+    #initial_cells = [(1,0), (2,1), (0,2), (1,2), (2,2), (5,5), (5,6), (5,7), (4,3), (4,2), (4,1), (3,4), (3,3), (5,2), (7,1), (7,3)]
 
     # Turn on the initialized cells
     for cell in initial_cells:
@@ -46,7 +46,7 @@ def main():
             scr.refresh()
 
         # Slow down if necessary
-        time.sleep(.5)
+        time.sleep(5)
 
         # Update each cells future state
         conway.update_each_cells_state()
