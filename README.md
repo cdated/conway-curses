@@ -9,4 +9,8 @@ Usage:
 
 Example:
 
-./conway_curses.py 5
+./conway_curses.py 20
+
+Sample Glider:
+
+![Sample Glider](https://github.com/cdated/conwayCurses/blob/master/docs/glider.gif?raw=true)
