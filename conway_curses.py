@@ -6,11 +6,23 @@ import sys
 
 from conway import Conway
 
+def read_initial_state_file(initial_file):
+    with open(initial_file) as f:
+        grid = f.readlines()
+
+    initial_cells = []
+    for x, line in enumerate(grid):
+        for y, char in enumerate(line):
+            if char.strip() == '*':
+                initial_cells.append((x, y))
+
+    return initial_cells
+
 def main():
     if len(sys.argv) > 1:
         tick_count = int(sys.argv[1])
     else:
-        tick_count = 100
+        tick_count = 20
 
     # Initialize ncurses and get the board dimensions from the screen limits
     scr = curses.initscr()
@@ -20,16 +32,8 @@ def main():
     # Use the lower bound to set the dimensions
     conway = Conway(bounds=(0,dim))
 
-    # glider
-    initial_cells = [(1,0), (2,1), (0,2), (1,2), (2,2)]
-
-    # blinker
-    #initial_cells = [(1,0), (1,1), (1,2)]
-
-    # random
-    #initial_cells = [(1,0), (2,1), (0,2), (1,2), (2,2), (5,5), (5,6), (5,7), (4,3), (4,2), (4,1), (3,4), (3,3), (5,2), (7,1), (7,3)]
-
     # Turn on the initialized cells
+    initial_cells = read_initial_state_file('initial_state.txt')
     for cell in initial_cells:
             conway.set_initial_state_on_board(cell, True)
 
@@ -46,7 +50,7 @@ def main():
             scr.refresh()
 
         # Slow down if necessary
-        time.sleep(5)
+        time.sleep(.5)
 
         # Update each cells future state
         conway.update_each_cells_state()
@@ -59,4 +63,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
