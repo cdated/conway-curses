@@ -3,6 +3,8 @@
 import curses
 import time
 import sys
+import os
+import signal
 
 from conway import Conway
 
@@ -41,6 +43,8 @@ def main():
     curses.noecho()
     curses.curs_set(0)
 
+    signal.signal(signal.SIGINT, cleanup)
+
     # Draw the live cells on the screen and update tick
     for i in range(tick_count):
         scr.clear()
@@ -58,8 +62,13 @@ def main():
         # Update the board all at once
         conway.update_board()
 
-    scr.getch()
     curses.endwin()
+    cleanup()
+
+def cleanup(signal=None, frame=None):
+    os.system('stty sane')
+    os.system('reset')
+    sys.exit(0)
 
 if __name__ == '__main__':
     main()
