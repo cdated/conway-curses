@@ -13,7 +13,7 @@ Example:
 
 ### Alter Initial State:
 
-The initial state is defined in the `initial_state.txt` as a pattern of asterisks and spaces.  To alter the initial pattern edit `initial_state.txt` and run again.
+The initial state is defined in `initial_state.txt` as a pattern of asterisks and spaces.  To alter the initial pattern edit `initial_state.txt` and run again.
 
 ### Sample Glider:
 
