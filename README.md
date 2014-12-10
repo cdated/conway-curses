@@ -13,7 +13,7 @@ Example:
 
 ### Alter Initial State:
 
-The initial state is definted in the `initial_state.txt` as a pattern of asterisks and spaces.  To alter the initial pattern edit `initial_state.txt` with your new pattern and run the conway_curses.py.
+The initial state is defined in the `initial_state.txt` as a pattern of asterisks and spaces.  To alter the initial pattern edit `initial_state.txt` and run again.
 
 ### Sample Glider:
 
