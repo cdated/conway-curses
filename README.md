@@ -1,4 +1,4 @@
-conwayCurses
+conway-curses
 ============
 
 Conway's game of life implemented in Python with Curses
